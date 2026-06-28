@@ -1,8 +1,4 @@
-import psutil
-import subprocess
-import csv
-import io
-
+import psutil, subprocess, io, csv
 
 SYSTEM_PROCESSES = {
     'system', 'svchost.exe', 'explorer.exe', 'winlogon.exe', 'csrss.exe', 'smss.exe',
@@ -21,8 +17,8 @@ SYSTEM_PROCESSES = {
     'asusptpservice.exe', 'msedgewebview2.exe', 'shellhost.exe', 'textinputhost.exe', 'asus_framework.exe', 'unsecapp.exe', 
     'ctfmon.exe', 'rtkauduservice64.exe', 'presentationfontcache.exe', 'pet.exe', 'asussystemdiagnosis.exe', 
     'rvcontrolsvc.exe', 'armouryswagent.exe', 'shellexperiencehost.exe', 'tasklist.exe', 'armourycratecontrolinterface.exe',
-    'armouryhtmldebugserver.exe', 'lightingservice.exe', 'oneapp.igcc.winservice.exe', 
-    'smartscreen.exe', 'bash.exe', 'code.exe', 'python.exe'
+    'armouryhtmldebugserver.exe', 'lightingservice.exe', 'oneapp.igcc.winservice.exe', 'widgetservice.exe',
+    'smartscreen.exe', 'bash.exe', 'code.exe', 'python.exe', 'widgets.exe', 'sppsvc.exe', 'gamebarftserver.exe'
 }
 
 def get_open_programs():
@@ -60,7 +56,5 @@ def close_unwanted_programs(allowed_list, open_progs):
                 subprocess.run(['taskkill', '/F', '/IM', prog], capture_output=True, check=False)
             except Exception:
                 pass
-
-
 
 

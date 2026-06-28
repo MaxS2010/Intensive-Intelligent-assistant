@@ -16,14 +16,14 @@ def find_path(filename: str):
             capture_output= True, 
             text= True
         )
+    
+        list_path = result.stdout.split("\n")
+        file = list_path[0].strip()
+        if file != '':
+            if os.path.exists(file):
+                return file
     except:
         pass
-    
-    list_path = result.stdout.split("\n")
-    file = list_path[0].strip()
-    if file != '':
-        if os.path.exists(file):
-            return file
     
     if system == 'Windows':
         extentions = [".exe"]

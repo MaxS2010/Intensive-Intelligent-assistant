@@ -29,6 +29,3 @@ def voice_text(text: str):
 def run_voice(text: str):
     voicing_thread= threading.Thread(target= voice_text, args= (text,), daemon= True)
     voicing_thread.start()
-
-
-time.sleep(5)
